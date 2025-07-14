@@ -9,6 +9,7 @@
     margin: 0.5rem 0; /* space between stacked links */
   }
 }
+
 h1{
     font-size:x-large;
 }
@@ -37,6 +38,8 @@ nav {
 nav a:hover {
   text-decoration: underline; 
 }
+
+
 #intro{
     font-size: small;
 }
