@@ -1,0 +1,18 @@
+h1{
+    font-size:x-large;
+}
+
+* {
+    background-color:gray;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+}
+
+.nav-links{
+display: flex;
+justify-content: flex-end;
+gap:20px;
+padding:5px;
+}
+
+
