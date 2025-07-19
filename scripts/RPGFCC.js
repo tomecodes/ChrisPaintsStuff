@@ -40,13 +40,29 @@ const monsters = [
     name: "dragon",
     level: 20,
     health: 300
-  }
+  },
+  { name: "ghost",
+    level: 10,
+    health: 85
+  },
+  { name: "giant spider",
+    level: 12,
+    health: 100
+  },
+  { name: "skeleton knight", 
+    level: 15,
+    health: 125
+  },
+  { name: "cursed king", 
+    level: 18,
+    health: 170
+  },
 ]
 const locations = [
   {
     name: "town square",
     "button text": ["Go to store", "Go to cave", "Fight dragon"],
-    "button functions": [goStore, goCave, fightDragon],
+    "button functions": [goStore, goCombat, fightDragon],
     text: "You are in the town square. You see a sign that says \"Store\"."
   },
   {
@@ -56,10 +72,10 @@ const locations = [
     text: "You enter the store."
   },
   {
-    name: "cave",
-    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
-    "button functions": [fightSlime, fightBeast, goTown],
-    text: "You enter the cave. You see some monsters."
+    name: "Adventure",
+    "button text": ["Go to Cave.", "Go to Spooky Forest", "Go to Derelict Castle"],
+    "button functions": [goCave, goForest, goCastle],
+    text: "Choose a place to battle monsters!"
   },
   {
     name: "fight",
@@ -68,8 +84,8 @@ const locations = [
     text: "You are fighting a monster."
   },  {
     name: "kill monster",
-    "button text": ["Go to town square", "Go to town square", "Go to town square"],
-    "button functions": [goTown, goTown, goTown],
+    "button text": ["Go back to cave.", "Go to town store", "Go to town square"],
+    "button functions": [goCave, goStore, goTown],
     text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
   },   {
     name: "lose",
@@ -79,8 +95,8 @@ const locations = [
   },
   { 
     name: "win", 
-    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"], 
-    "button functions": [restart, restart, restart], 
+    "button text": ["REPLAY?", "REPLAY?", "Continue?"], 
+    "button functions": [restart, restart, goTown], 
     text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;" 
   },
   {
@@ -93,7 +109,7 @@ const locations = [
 
 // initialize buttons
 button1.onclick = goStore;
-button2.onclick = goCave;
+button2.onclick = goCombat;
 button3.onclick = fightDragon;
 
 function update(location) {
@@ -116,8 +132,35 @@ function goStore() {
   update(locations[1]);
 }
 
-function goCave() {
+function goCombat() {
   update(locations[2]);
+}
+
+function goCave() {
+  update({
+    name: "Cave",
+     "button text": ["Fight slime", "Fight fanged beast", "Back to town square"],
+    "button functions": [fightSlime, fightBeast, goTown],
+    text: "You enter the cave. It's dark and damp."
+  });
+}
+
+function goForest() {
+  update({
+    name: "Spooky Forest",
+    "button text": ["Fight ghost", "Fight spider", "Back to town sqaure"],
+    "button functions": [fightGhost, fightSpider, goTown],
+    text: "You step into the eerie spooky forest. Something moves..."
+  })
+}
+
+function goCastle() {
+  update({
+    name: "Castle",
+    "button text": ["Fight skeleton knight", "Fight cursed king", "Back to town square"],
+    "button functions": [fightKnight, fightKing, goTown],
+    text: "The derelict castle looms. It's filled with dangerous foes."
+  })
 }
 
 function buyHealth() {
@@ -155,9 +198,9 @@ function sellWeapon() {
   if (inventory.length > 1) {
     gold += 15;
     goldText.innerText = gold;
-    let currentWeapon = inventory.shift();
-    text.innerText = "You sold a " + currentWeapon + ".";
-    text.innerText += " In your inventory you have: " + inventory;
+    let soldWeapon = inventory.shift();
+    text.innerText = "You sold a " + soldWeapon + ".";
+    text.innerText += " In your inventory you have: " + inventory.join(", ");
   } else {
     text.innerText = "Don't sell your only weapon!";
   }
@@ -175,6 +218,26 @@ function fightBeast() {
 
 function fightDragon() {
   fighting = 2;
+  goFight();
+}
+
+function fightGhost() {
+  fighting = 3;
+  goFight();
+}
+
+function fightSpider() {
+  fighting = 4;
+  goFight();
+}
+
+function fightKnight() {
+  fighting = 5;
+  goFight();
+}
+
+function fightKing() {
+  fighting = 6;
   goFight();
 }
 
@@ -228,16 +291,16 @@ function dodge() {
 }
 
 function checkLevelUp() {
-  if (xp >= xpToLevel) {
-    level += 1;
+  while (xp >= xpToLevel) {
+    level++;
     xp -= xpToLevel;
     xpToLevel = Math.floor(xpToLevel * 1.5);
     health += 20;
     text.innerText = "You leveled up! You are now level " + level + ".";
-    levelText.innerText = level;
-    xpText.innerText = xp;
-    healthText.innerText = health;
   }
+  levelText.innerText = level;
+  xpText.innerText = xp;
+  healthText.innerText = health;
 }
 function defeatMonster() {
   gold += Math.floor(monsters[fighting].level * 6.7);
@@ -267,6 +330,7 @@ function restart() {
   goldText.innerText = gold;
   healthText.innerText = health;
   xpText.innerText = xp;
+  levelText.innerText = level;
   goTown();
 }
 
