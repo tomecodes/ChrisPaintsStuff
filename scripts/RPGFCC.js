@@ -1,4 +1,6 @@
+let level = 1;
 let xp = 0;
+let xpToLevel = 20;
 let health = 100;
 let gold = 50;
 let currentWeapon = 0;
@@ -11,6 +13,7 @@ const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 const text = document.querySelector("#text");
 const xpText = document.querySelector("#xpText");
+const levelText = document.querySelector("#levelText");
 const healthText = document.querySelector("#healthText");
 const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
@@ -106,6 +109,7 @@ function update(location) {
 
 function goTown() {
   update(locations[0]);
+ 
 }
 
 function goStore() {
@@ -180,6 +184,7 @@ function goFight() {
   monsterStats.style.display = "block";
   monsterName.innerText = monsters[fighting].name;
   monsterHealthText.innerText = monsterHealth;
+  
 }
 
 function attack() {
@@ -222,13 +227,27 @@ function dodge() {
   text.innerText = "You dodge the attack from the " + monsters[fighting].name;
 }
 
+function checkLevelUp() {
+  if (xp >= xpToLevel) {
+    level += 1;
+    xp -= xpToLevel;
+    xpToLevel = Math.floor(xpToLevel * 1.5);
+    health += 20;
+    text.innerText = "You leveled up! You are now level " + level + ".";
+    levelText.innerText = level;
+    xpText.innerText = xp;
+    healthText.innerText = health;
+  }
+}
 function defeatMonster() {
   gold += Math.floor(monsters[fighting].level * 6.7);
-  xp += monsters[fighting].level;
+  xp += monsters[fighting].level * 2;
   goldText.innerText = gold;
   xpText.innerText = xp;
+  checkLevelUp();
   update(locations[4]);
 }
+
 
 function lose() {
   update(locations[5]);
@@ -240,6 +259,7 @@ function winGame() {
 
 function restart() {
   xp = 0;
+  level = 1;
   health = 100;
   gold = 50;
   currentWeapon = 0;
