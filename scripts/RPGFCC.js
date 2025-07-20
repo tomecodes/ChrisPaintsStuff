@@ -61,7 +61,7 @@ const monsters = [
 const locations = [
   {
     name: "town square",
-    "button text": ["Go to store", "Go to cave", "Fight dragon"],
+    "button text": ["Go to store", "Go fight", "Fight dragon"],
     "button functions": [goStore, goCombat, fightDragon],
     text: "You are in the town square. You see a sign that says \"Store\"."
   },
@@ -73,7 +73,7 @@ const locations = [
   },
   {
     name: "Adventure",
-    "button text": ["Go to Cave.", "Go to Spooky Forest", "Go to Derelict Castle"],
+    "button text": ["Go to Cave", "Go to Spooky Forest", "Go to Derelict Castle"],
     "button functions": [goCave, goForest, goCastle],
     text: "Choose a place to battle monsters!"
   },
