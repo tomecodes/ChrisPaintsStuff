@@ -6,7 +6,7 @@
 
 body {
   font-family: sans-serif;
-  background-color:rgb(208, 231, 250)
+  background-color: #e3f2fd;
 }
 
 #main-doc {
@@ -16,8 +16,9 @@ body {
   line-height: 1.6;
   
 }
+
  #navbar {
-  background-color: black;
+  background-color: #111;
   color: white;
   display: flex;
   flex-direction:column;
@@ -27,10 +28,10 @@ body {
   flex-wrap: wrap;
 }
 
-#navbar a {
-  color: white;
-
+#navbar a:hover {
+  color: aquamarine;
 }
+
 
 #Alan_Turing {
   text-align: center;
