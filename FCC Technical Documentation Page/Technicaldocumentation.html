@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Documation</title>
+    <title>Technical Documentation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,11 +21,67 @@
 
     <main id="main-doc">
         <section class="main-section" id="Introduction">
-            <header>Introduction</header>
+            <header><h1>Introduction</h1></header>
             <p>HTML and CSS are the foundational technologies for building websites. HTML (HyperText Markup Language) is used to structure content on the web, while CSS (Cascading Style Sheets) is used to control the presentation and layout.</p>
             <p>Whether you’re designing a simple personal portfolio or a complex web app interface, understanding how HTML and CSS work together is crucial. This documentation covers the essentials to get you started.</p>
-
         </section>
-    </main>
+        <section class="main-section" id="HTML_Structure">
+          <header><h1>HTML Structure</h1></header>
+          An HTML document starts with a &lt;!DOCTYPE html&gt; declaration, which tells the browser the document type. The &lt;html&gt; element wraps everything, followed by a &lt;head&gt; and a &lt;body&gt; section. The &lt;head&gt; contains metadata like the page title and links to stylesheets. The &lt;body&gt; contains all the visible content of the webpage such as text, images, and links.
+        </section>
+        <section class="main-section" id="HTML_Elements">
+          <header><h1>Common HTML Elements</h1></header>
+          <p>HTML uses tags to define different types of content. Some of the most common elements include:</p>
+          <div class="box">
+          <ul>
+          <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> for headings<br></li>
+          <li><code>&lt;p&gt;</code> for paragraphs<br></li>
+          <li><code>&lt;a&gt;</code> for links<br></li>
+          <li><code>&lt;img&gt;</code> for images<br></li>
+          <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, and <code>&lt;li&gt;</code> for lists</li>
+          </ul>
+          <p><code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>: Generic containers for structuring content. These tags allow you to organize information semantically and present it effectively.</p>
+</p>
+</div>
+        </section>
+        <section class="main-section" id="CSS_Syntax">
+          <header><h1>CSS Syntax & Selectors</h1></header>
+          <p>CSS is used to style HTML elements using rules made of selectors and declarations. A selector targets an HTML element, and declarations define what style to apply. For example:</p>
+          <div class="box">
+  <pre><code>p { color: blue; font-size: 16px; }</code></pre>
+</div>
+          <p>You can use element selectors (p), class selectors (.example), ID selectors (#main), and more complex combinations to target the exact parts of your page you want to style.</p>
+        </section>
+        <section class="main-section" id="Box_Model">
+          <header><h3>Box Model</h3></header>
+          <p>Every HTML element is treated as a rectangular box in CSS, following the box model. This model includes:</p>
+          <div class="box">
+          <ul>
+            <li>Content: The actual text or image.</li>
+            <li>Padding: Space between content and border.</li>
+            <li>Border: The edge surrounding the padding.</li>
+            <li>Margin: Space outside the border that separates it from other elements.
+Understanding the box model is essential for layout and spacing on a web page.</li>
+          </ul>
+          </div>
+        </section>
+        <section class="main-section" id="Responsive_Design">
+          <header><h1>Responsive Design</h1></header>
+          <p>Responsive design ensures that your website looks good on all screen sizes—from phones to desktops. This is typically done using:</p>
+          <div class="box">
+          <ul>
+            <li>Relative units like percentages and em instead of fixed pixels.</li>
+            <li>CSS media queries (e.g., @media (max-width: 768px)) to apply styles based on screen size.</li>
+            <li>Flexible layouts using Flexbox or CSS Grid.
+Responsive web design improves usability and accessibility for all users.</li>
+          </ul>
+          </div>
+        </section>
+    <footer style="text-align:center; padding: 2rem; background-color: #f4f4f4;">
+  <p>Made with ❤️ for freeCodeCamp | Author: Tom</p>
+      <a class="top" href="#Introduction">Back to the top</a>
+  </footer>
+</main>
+  
 </body>
 </html>
