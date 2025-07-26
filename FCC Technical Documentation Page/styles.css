@@ -39,12 +39,14 @@ header{
   color: blue;
 }
 
-pre code {
-  background-color: #eee;
-  padding: 0.5rem;
-  display: block;
-  border-radius: 4px;
-  font-family: monospace;
+.box {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-left: 4px solid #2196f3;
+  border-radius: 8px;
+  max-width: 90%;
+  text-align: left; /* Keep content aligned properly */
 }
 .main-section {
   margin-bottom: 3rem;
