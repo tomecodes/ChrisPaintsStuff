@@ -1,34 +1,88 @@
-@media (max-width: 600px) {
-  body {
-    font-size: 16px;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color:rgb(208, 231, 250)
+}
+
+#main-doc {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.6;
+  
+}
+ #navbar {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction:column;
+  gap: 0.5rem;
+  padding: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#navbar a {
+  color: white;
+
+}
+
+#Alan_Turing {
+  text-align: center;
+}
+
+code {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+#image {
+  display: block;
+  max-width: 100%;
+  width: 300px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+#Famous_Quote,
+#Extra_Info,
+#Learn_More {
+  text-align: center;
+}
+
+.main-section {
+  padding: 1.5rem 0;
+}
+ @media (min-width: 768px) {
   #navbar {
-    background-color: black;
-    color:white;
-    display:flex;
-    gap:0.5rem;
-    padding:1rem;
-    align-items: center;
-  }
-  #navbar a {
-    color:white;
-    text-decoration: none;
-  }
-  code {
-    display:flex;
-    flex-direction: column;
-  }
-  #Alan_Turing {
-    text-align: center;
-  }
-  #image {
-    max-width: 100%;
-    width:300px;
-    border-radius: 10px;
-    margin:0 auto;
-  }
-  #Famous_Quote, #Extra_Info, #Learn_More {
-    text-align: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
   }
 
+  #navbar a {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  #image {
+    width: 400px;
+  }
+
+  .main-section {
+    padding: 2rem 0;
+  }
+
+  code {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    text-align: center;
+  }
 }
