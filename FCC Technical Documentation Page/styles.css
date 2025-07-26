@@ -1,0 +1,32 @@
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 1rem;
+  overflow-y: auto;
+}
+#navbar header {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.nav-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 0.25rem 0;
+}
+.nav-link:hover {
+  text-decoration: underline;
+  color: blue;
+}
+#main-doc {
+  margin-left: 260px; /*pushes main content more to the left*/
+  padding: 2rem;
+  flex: 1;
+}
