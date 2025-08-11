@@ -8,11 +8,18 @@ const images = [
 ];
 
 let currentIndex = 0;
-const slideshow = document.getElementById('slideshow');
 
-function changeImage(){
+function changeImage() {
+  
+  slideshow.classList.add('fade-out');
+
+
+  setTimeout(() => {
     currentIndex = (currentIndex + 1) % images.length;
     slideshow.src = images[currentIndex];
+    slideshow.classList.remove('fade-out');
+  }, 500); 
 }
 
-setInterval(changeImage, 5000);
+
+setInterval(changeImage, 4000);
