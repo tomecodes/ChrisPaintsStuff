@@ -119,3 +119,19 @@ p {
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+#ork-toggle {
+  background: #6b8e23;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 20px;
+}
+
+#ork-toggle:hover {
+  background: #556b2f;
+}
